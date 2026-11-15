@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <p class="eyebrow">Token Radar</p>
+    <h1>Protocols that record no token, ranked by what a launch could be worth</h1>
+    <p class="lede" id="lede">Loading the board.</p>
+  </div>
+  <dl class="stats" id="stats"></dl>
+</header>
+<main>
+  <section class="controls" aria-label="Board controls">
+    <label>Search <input id="q" type="search" placeholder="Name, slug, chain" autocomplete="off"></label>
+    <label>Category <select id="cat"><option value="all">All categories</option></select></label>
+    <label>Chain <select id="chain"><option value="all">All chains</option></select></label>
+    <label>Min score <select id="min"><option value="0">Any score</option><option value="50">50+</option><option value="70">70+</option><option value="80">80+</option></select></label>
+    <div class="tabs" role="group" aria-label="Token status">
+      <button id="tab-pre" type="button" aria-pressed="true">Pre-token</button>
+      <button id="tab-live" type="button" aria-pressed="false">Live token</button>
+    </div>
+    <p class="count" id="count"></p>
+  </section>
+  <section id="detail" class="detail" hidden></section>
+  <section class="panel"><div class="tablewrap"><table id="board">
+    <thead><tr>
+      <th><button data-sort="rank" type="button">Rank</button></th>
+      <th><button data-sort="name" type="button">Protocol</button></th>
+      <th><button data-sort="tvl" type="button">TVL</button></th>
+      <th><button data-sort="growth" type="button">7d</button></th>
+      <th><button data-sort="age" type="button">Age</button></th>
+      <th><button data-sort="score" type="button">Score</button></th>
+      <th><button data-sort="implied" type="button">Implied value</button></th>
+      <th>Token</th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+  </table></div></section>
+  <section class="panel model" id="model"></section>
+  <p class="foot">Implied value is a comparables-based estimate from the snapshot's own figures, not a price prediction. Nothing here says whether or when a protocol will issue a token. A protocol "records no token" in the snapshot; that is not proof it has none.</p>
+</main>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
